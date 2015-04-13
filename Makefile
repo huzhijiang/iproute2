@@ -33,8 +33,9 @@ CCOPTS = -D_GNU_SOURCE -O2 -Wstrict-prototypes -Wall
 CFLAGS = $(CCOPTS) -I../include $(DEFINES)
 YACCFLAGS = -d -t -v
 
-SUBDIRS=lib ip tc misc netem genl
+SUBDIRS=lib ip tc misc netem genl tipc
 
+LIBMNL=../lib/libnetlink.a ../lib/libutil.a
 LIBNETLINK=../lib/libnetlink.a ../lib/libutil.a
 LDLIBS += $(LIBNETLINK)
 
