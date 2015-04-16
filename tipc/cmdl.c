@@ -129,7 +129,6 @@ int run_cmd(struct nlmsghdr *nlh, const struct cmd *caller,
 	name = cmdl->argv[cmdl->optind];
 	(cmdl->optind)++;
 
-
 	cmd = find_cmd(cmds, name);
 	if (!cmd) {
 		/* Show help about last command if we don't find this one */
