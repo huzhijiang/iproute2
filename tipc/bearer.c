@@ -681,13 +681,13 @@ static int bearer_list_cb(const struct nlmsghdr *nlh, void *data)
 
 	mnl_attr_parse(nlh, sizeof(*genl), parse_attrs, info);
 	if (!info[TIPC_NLA_BEARER]) {
-		printf("err, no bearer\n");
+		fprintf(stderr, "No bearer in netlink response\n");
 		return MNL_CB_ERROR;
 	}
 
 	mnl_attr_parse_nested(info[TIPC_NLA_BEARER], parse_attrs, attrs);
 	if (!attrs[TIPC_NLA_BEARER_NAME]) {
-		printf("err, no b name\n");
+		fprintf(stderr, "Bearer name missing in netlink response\n");
 		return MNL_CB_ERROR;
 	}
 
