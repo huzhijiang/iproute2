@@ -62,16 +62,6 @@ static void _print_bearer_media(void)
 		" eth                   - Ethernet\n");
 }
 
-static void print_ai(struct addrinfo *ai)
-{
-	char buf[NI_MAXHOST];
-	char sbuf[NI_MAXSERV];
-
-	if (getnameinfo(ai->ai_addr, ai->ai_addrlen, buf, sizeof(buf), sbuf,
-			sizeof(sbuf), NI_NUMERICHOST|NI_NUMERICSERV) == 0)
-		printf("host=%s, serv=%s\n", buf, sbuf);
-}
-
 static void cmd_bearer_enable_l2_help(struct cmdl *cmdl)
 {
 	fprintf(stderr,
@@ -224,9 +214,6 @@ static int enable_udp_bearer(struct nlmsghdr *nlh, struct opt *opts,
 		fprintf(stderr, "UDP local and remote AF mismatch\n");
 		return -EINVAL;
 	}
-
-	print_ai(loc);
-	print_ai(rem);
 
 	mnl_attr_put_strz(nlh, TIPC_NLA_BEARER_NAME, name);
 
