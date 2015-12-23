@@ -193,7 +193,7 @@ static int enable_udp_bearer(struct nlmsghdr *nlh, struct opt *opts,
 	if ((opt = get_opt(opts, "remoteip")))
 		remip = opt->val;
 
-	if ((opt = get_opt(opts, "locport")))
+	if ((opt = get_opt(opts, "localport")))
 		locport = opt->val;
 
 	if ((opt = get_opt(opts, "remoteport")))
